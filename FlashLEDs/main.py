@@ -15,12 +15,12 @@ while True:
         # red off & blue on
         red_pin.value(low)
         blue_pin.value(high)
-        sleep(0.5) # sleep 1 second
+        sleep(1) # sleep 1 second
 
         # red on & blue off
         red_pin.value(high)
         blue_pin.value(low)
-        sleep(0.5) # sleep 1 second
+        sleep(1) # sleep 1 second
     except KeyboardInterrupt:
         break
 
