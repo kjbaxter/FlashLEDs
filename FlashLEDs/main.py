@@ -24,7 +24,7 @@ while True:
     except KeyboardInterrupt:
         break
 
-blue_pin.off()
-red_pin.off()
+#blue_pin.off()
+#red_pin.off()
 
 print("Finished.")
