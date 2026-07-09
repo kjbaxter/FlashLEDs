@@ -1,18 +1,33 @@
-import uasyncio as asyncio
- 
-async def task1():
-    for i in range(3):
-        print("Task 1:", i)
-        await asyncio.sleep(0.5)
- 
-async def task2():
-    for i in range(3):
-        print("Task 2:", i)
-        await asyncio.sleep(0.3)
- 
+
+
+import asyncio
+
+
+
+###############################################################################
+
+async def bar(x):
+    count = 0
+    while True:
+        count += 1
+        print('Instance: {} count: {}'.format(x, count))
+        await asyncio.sleep(1)  # Pause 1s
+
+###############################################################################
+
+
+###############################################################################
+
 async def main():
-    t1 = asyncio.create_task(task1())
-    t2 = asyncio.create_task(task2())
-    await asyncio.gather(t1, t2)
- 
-asyncio.run(main())
+    for x in range(3):
+        asyncio.create_task(bar(x))  # No reference stored
+    print('Tasks are running')
+    await asyncio.sleep(10)
+
+###############################################################################
+
+
+print('Start')
+loop = asyncio.get_event_loop()
+#loop.run_until_complete(main())
+print('Stop')
